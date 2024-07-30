@@ -1,0 +1,92 @@
+.status{
+    min-width: 100%;
+    height: max-content;
+    overflow-x: scroll;
+    display: flex;
+    scroll-snap-type: x mandatory;
+}
+.status1,.status2,.status3,.status4,.status5,.status6,.status7,.status8,.status9,.status10{
+    min-width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid rgb(233, 0, 39);
+    background-image: url(instagram.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 5px;
+    background-color: transparent;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.status::-webkit-scrollbar{
+    height: 5px;
+    background: white;
+    border: .5px inset rgb(231, 231, 231);
+}
+.status::-webkit-scrollbar-thumb{
+    background: linear-gradient(grey,white);
+    width: 10px;
+}
+body{
+    background-color: white;
+    margin: 10px;
+    margin-top: 30px;
+}
+.profiledstatus{
+    background-image: url(instagram.jpg);
+    background-size: contain;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 55px;
+    border-radius: 100px;
+}
+.addstory{
+    background-color: rgb(0, 162, 255);
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    border: .2px solid rgb(0, 119, 255);
+    position: relative;
+    margin-left: 40px;
+    margin-top: 45px;
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    color: var(--color);
+    text-decoration: none;
+}
+.stat1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    background-image: url(instagram.jpg);
+    min-width: 250px;
+    min-height: 320px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 30px;
+    scroll-snap-align: start;
+    margin-left: 30px;
+}
+.posts{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: 280px;
+    height: 360px;
+}
